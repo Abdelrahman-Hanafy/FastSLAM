@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+
+  <!-- Launch other relevant files-->
+  <include file="$(find my_robot)/launch/world.launch"/>
+
+
+  <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" args="scan:=scan">
+    <param name="base_frame" value="robot_footprint"/>
+  </node>
+
+  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen"/>
+
+
+</launch>
